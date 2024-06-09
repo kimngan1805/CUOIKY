@@ -10,23 +10,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="532.4" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cuoiki.pizzaorderapp.LoginCustomer">
+<AnchorPane prefHeight="600.0" prefWidth="532.4" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cuoiki.pizzaorderapp.Controller.CustomerLoginController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="532.4" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/backgroundLgC.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="102.0" layoutY="107.0" prefHeight="380.0" prefWidth="330.0" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;">
+      <AnchorPane fx:id="SignIn_Page" layoutX="102.0" layoutY="107.0" prefHeight="380.0" prefWidth="330.0" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" visible="false">
          <children>
             <Label layoutX="101.0" layoutY="14.0" text="2P Pizza">
                <font>
                   <Font name="President" size="44.0" />
                </font>
             </Label>
-            <TextField layoutX="40.0" layoutY="137.0" prefHeight="35.0" prefWidth="250.0" promptText="Tên đăng nhập" />
-            <PasswordField layoutX="40.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" promptText="Mật khẩu" />
-            <Button layoutX="81.0" layoutY="260.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" text="Đăng nhập" />
+            <TextField fx:id="username" layoutX="40.0" layoutY="137.0" prefHeight="35.0" prefWidth="250.0" promptText="Tên đăng nhập" />
+            <PasswordField fx:id="password" layoutX="40.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" promptText="Mật khẩu" />
+            <Button fx:id="signin_btn" layoutX="81.0" layoutY="260.0" mnemonicParsing="false" onAction="#login" prefHeight="44.0" prefWidth="167.0" text="Đăng nhập" />
             <Label layoutX="96.0" layoutY="93.0" text="Vui lòng đăng nhập">
                <font>
                   <Font name="Tahoma" size="16.0" />
@@ -37,7 +37,7 @@
                   <Font name="Tahoma" size="13.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="182.0" layoutY="343.0" text="Đăng ký ngay.">
+            <Hyperlink fx:id="dangky" layoutX="182.0" layoutY="343.0" onAction="#switchForm" text="Đăng ký ngay.">
                <font>
                   <Font name="Tahoma Bold" size="13.0" />
                </font>
@@ -49,11 +49,11 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="102.0" layoutY="85.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" visible="false">
+      <AnchorPane fx:id="SignUpPage" layoutX="102.0" layoutY="85.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;">
          <children>
-            <TextField layoutX="40.0" layoutY="137.0" prefHeight="35.0" prefWidth="250.0" promptText="Tên đăng nhập" />
-            <PasswordField layoutX="40.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" promptText="Mật khẩu" />
-            <Button layoutX="81.0" layoutY="307.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" text="Đăng ký" />
+            <TextField fx:id="username_2" layoutX="40.0" layoutY="137.0" prefHeight="35.0" prefWidth="250.0" promptText="Tên đăng nhập" />
+            <PasswordField fx:id="pass_2" layoutX="40.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" promptText="Mật khẩu" />
+            <Button fx:id="sign_up_btn" layoutX="81.0" layoutY="307.0" mnemonicParsing="false" onAction="#create" prefHeight="44.0" prefWidth="167.0" text="Đăng ký" />
             <Label layoutX="100.0" layoutY="94.0" text="Đăng ký tài khoản">
                <font>
                   <Font name="Tahoma" size="16.0" />
@@ -64,12 +64,12 @@
                   <Font name="Tahoma" size="13.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="166.0" layoutY="393.0" text="Đăng nhập ngay.">
+            <Hyperlink fx:id="signlink" layoutX="166.0" layoutY="393.0" onAction="#switchForm" text="Đăng nhập ngay.">
                <font>
                   <Font name="Tahoma Bold" size="13.0" />
                </font>
             </Hyperlink>
-            <PasswordField layoutX="40.0" layoutY="231.0" prefHeight="35.0" prefWidth="250.0" promptText="Xác nhận mật khẩu" />
+            <PasswordField fx:id="confirm_pass" layoutX="40.0" layoutY="231.0" prefHeight="35.0" prefWidth="250.0" promptText="Xác nhận mật khẩu" />
             <Label layoutX="102.0" layoutY="14.0" text="2P Pizza">
                <font>
                   <Font name="President" size="44.0" />

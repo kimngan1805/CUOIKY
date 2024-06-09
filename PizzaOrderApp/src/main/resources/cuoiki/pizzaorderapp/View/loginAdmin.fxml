@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="420.0" style="-fx-background-color: linear-gradient(#de6f57,#2f2828);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cuoiki.pizzaorderapp.LoginCustomer">
+<AnchorPane prefHeight="400.0" prefWidth="420.0" style="-fx-background-color: linear-gradient(#de6f57,#2f2828);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cuoiki.pizzaorderapp.Controller.AdminLoginController">
    <children>
       <ImageView fitHeight="59.0" fitWidth="64.0" layoutX="81.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,8 +26,8 @@
             <Font name="Tahoma" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="85.0" layoutY="159.0" prefHeight="40.0" prefWidth="250.0" promptText="Tên đăng nhập" />
-      <PasswordField layoutX="85.0" layoutY="220.0" prefHeight="40.0" prefWidth="250.0" promptText="Mật khẩu" />
-      <Button layoutX="145.0" layoutY="306.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Đăng nhập" />
+      <TextField fx:id="username" layoutX="85.0" layoutY="159.0" prefHeight="40.0" prefWidth="250.0" promptText="Tên đăng nhập" />
+      <PasswordField fx:id="password" layoutX="85.0" layoutY="220.0" prefHeight="40.0" prefWidth="250.0" promptText="Mật khẩu" />
+      <Button fx:id="sign_btn" layoutX="145.0" layoutY="306.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="130.0" text="Đăng nhập" />
    </children>
 </AnchorPane>

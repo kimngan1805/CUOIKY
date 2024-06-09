@@ -5,6 +5,7 @@ module cuoiki.pizzaorderapp {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens cuoiki.pizzaorderapp to javafx.fxml;
     exports cuoiki.pizzaorderapp;
