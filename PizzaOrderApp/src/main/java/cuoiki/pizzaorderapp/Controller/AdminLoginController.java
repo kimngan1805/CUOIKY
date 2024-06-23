@@ -1,5 +1,6 @@
 package cuoiki.pizzaorderapp.Controller;
 
+import cuoiki.pizzaorderapp.HelloApplication;
 import cuoiki.pizzaorderapp.Model.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +34,7 @@ public class AdminLoginController implements Initializable {
     private Connection connect;
     private ResultSet resultSet;
     public void login(){
-        String sql="select * from LoginAdmin where username=? and password=?";
+        String sql="select * from Administrator where username_admin=? and pass_admin=?";
         DatabaseConnection connectNow= new DatabaseConnection();
         Connection connect=connectNow.getConnection();
         try{
@@ -47,19 +47,21 @@ public class AdminLoginController implements Initializable {
                 alert=new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Please fill all blank fields");
+                alert.setContentText("Hãy điền vào những chỗ còn trống!");
                 alert.showAndWait();
             }else{
                 if (resultSet.next()){
                     alert=new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Message");
                     alert.setHeaderText(null);
-                    alert.setContentText(" Successfully Login !");
+                    alert.setContentText(" Đăng nhập thành công!");
                     alert.showAndWait();
                     // ẩn trang login sau khi đăng nhập thành
                     sign_btn.getScene().getWindow().hide();
                     // link để qua 1 trang mới sau khi login thành công
-                    Parent root= FXMLLoader.load(getClass().getResource("View/hello-view.fxml"));
+                    // Load và hiển thị dashboard
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/cuoiki/pizzaorderapp/View/dashboard.fxml"));
+                    Parent root = loader.load();
                     Stage stage= new Stage();
                     Scene scene= new Scene(root);
                     stage.setScene(scene);
@@ -68,7 +70,7 @@ public class AdminLoginController implements Initializable {
                     alert=new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Wrong username/password");
+                    alert.setContentText("Sai tên đăng nhập hoặc mật khẩu!");
                     alert.showAndWait();
                 }
 
